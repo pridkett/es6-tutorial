@@ -22,7 +22,21 @@
         <button id="calcBtn">Calculate</button>
     </div>
     <h2>Monthly Payment: <span id="monthlyPayment" class="currency"></span></h2>
+    <h3>Monthly Rate: <span id="monthlyRate" class="percentage"></span></h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Year</th>
+          <th>Principal</th>
+          <th class="stretch"></th>
+          <th>Interest</th>
+          <th>Balance</th>
+        </tr>
+      </thead>
+      <tbody id="amortization"></tbody>
+    </table>
 </div>
-<script src="calc.js"></script>
+<script src="dist/all.js"></script>
 </body>
 </html>
