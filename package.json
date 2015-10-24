@@ -19,6 +19,7 @@
     "browserify": "^11.2.0",
     "gulp-babel": "^5.3.0",
     "gulp-concat": "^2.6.0",
+    "gulp-sass": "^2.0.4",
     "gulp-sourcemaps": "^1.6.0",
     "http-server": "^0.8.5",
     "lodash": "^3.10.1",

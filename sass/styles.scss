@@ -1,9 +1,13 @@
+$bar-color-interest: rgb(252, 187, 105);
+$bar-color-principal: rgb(166, 197, 103);
+$font-size: 14px;
+
 input[type=text] {
     -webkit-appearance: none;
     width: 150px;
     height: 24px;
     padding: 3px 8px;
-    font-size: 14px;
+    font-size: $font-size;
     line-height: 1.42857143;
     color: #555;
     border: 1px solid #ccc;
@@ -19,7 +23,7 @@ button {
     border-color: #ccc;
     display: inline-block;
     padding: 6px 12px;
-    font-size: 14px;
+    font-size: $font-size;
     font-weight: 400;
     line-height: 1.42857143;
     text-align: center;
@@ -82,12 +86,12 @@ label {
 }
 
 .bar.principal {
-    background-color: rgb(166, 197, 103);
+    background-color: $bar-color-principal;
     margin-right:.5px;
 }
 
 .bar.interest {
-    background-color: rgb(252, 187, 105);
+    background-color: $bar-color-interest;
     margin-left:.5px;
 }
 

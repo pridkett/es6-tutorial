@@ -10,11 +10,14 @@ var vinylBuffer = require('vinyl-buffer');
 var babelify = require('babelify');
 var rimraf = require('rimraf');
 var _ = require('lodash');
+var sass = require('gulp-sass');
 
 var globalNamespace = 'wagstrom';
 var paths = {
   es6: ['src/**/*.js', 'src/modules/*.js'],
   es5: 'dist',
+  sass: ['sass/**/*.scss'],
+  sassDist: 'dist/css',
   sourceRoot: path.join(__dirname, 'src')
 };
 
@@ -55,8 +58,17 @@ gulp.task('babel', function () {
   .pipe(gulp.dest(paths.es5));
 });
 
-gulp.task('watch', function () {
-  gulp.watch(paths.es6, ['babel']);
+gulp.task('sass', function() {
+  gulp.src(paths.sass)
+    .pipe(sourcemaps.init())
+    .pipe(sass.sync().on('error', sass.logError))
+    .pipe(sourcemaps.write('.', {sourceRoot: paths.sourceRoot}))
+    .pipe(gulp.dest(paths.sassDist));
 });
 
-gulp.task('default', ['babel', 'watch'])
+gulp.task('watch', function () {
+  gulp.watch(paths.es6, ['babel']);
+  gulp.watch(paths.sass, ['sass']);
+});
+
+gulp.task('default', ['babel', 'sass', 'watch'])
